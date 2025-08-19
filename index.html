@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ticket Generator — Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="bg-grid">
+  <main class="wrap">
+    <header class="hero hero-form">
+      <h1><span class="grad">2025</span> starts here! Secure your spot today 🎉</h1>
+      <p class="muted">Upload your photo and fill the details to mint your conference ticket.</p>
+    </header>
+
+    <section class="form-card">
+      <form id="ticketForm" novalidate>
+        <!-- Upload -->
+        <div class="field">
+          <label class="lbl">Upload photo <span class="help">(JPG/PNG, max 500KB)</span></label>
+          <label class="upload" for="avatar">
+            <input id="avatar" type="file" accept="image/png,image/jpeg">
+            <div>
+              <strong>Drag & drop or click to upload</strong>
+              <small>Square image works best</small>
+            </div>
+          </label>
+          <div class="avatar-preview" id="avatarPreview">
+            <img id="avatarImg" alt="Preview">
+            <span class="help">Looks good! You can change it.</span>
+          </div>
+          <span class="error" id="err-photo">Please add a JPG/PNG under 500KB.</span>
+        </div>
+
+        <!-- Name -->
+        <div class="field">
+          <label class="lbl" for="fullname">Full name</label>
+          <input id="fullname" class="input" type="text" placeholder="e.g., Malaika Minhas" required>
+          <span class="error" id="err-name">Please enter your full name.</span>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label class="lbl" for="email">Email address</label>
+          <input id="email" class="input" type="email" placeholder="e.g., malaika@example.com" required>
+          <span class="error" id="err-email">Please enter a valid email address.</span>
+        </div>
+
+        <!-- GitHub -->
+        <div class="field">
+          <label class="lbl" for="github">GitHub username</label>
+          <input id="github" class="input" type="text" placeholder="e.g., malaika-minhas" required>
+          <span class="error" id="err-github">Please enter your GitHub username.</span>
+        </div>
+
+        <button class="btn-cream" type="submit">Generate my Ticket</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

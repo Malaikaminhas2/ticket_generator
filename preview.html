@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Ticket • Coding Conf</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="bg-grid">
+  <main class="wrap">
+    <!-- top brand -->
+    <div class="brand-top">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12l6-7v5h4l6 7-6-3h-4v5l-6-7z" fill="currentColor"/></svg>
+      <span>Coding Conf</span>
+    </div>
+
+    <!-- hero text -->
+    <header class="hero">
+      <h1>Congrats, <span id="heroName" class="name-highlight">your name</span>! Your ticket is ready.</h1>
+      <p>We’ve emailed your ticket to <span id="heroEmail" class="email">you@example.com</span> and will send updates in the run up to the event.</p>
+    </header>
+
+    <!-- ticket card -->
+    <section class="ticket" id="ticketCard">
+      <div class="t-head">
+        <div>
+          <div class="t-brand">Coding Conf</div>
+          <div class="t-meta">July 16, 2025 • Islamabad, Pakistan</div>
+        </div>
+        <div id="tId" class="t-id">#123314</div>
+      </div>
+
+      <div class="t-body">
+        <img id="tAvatar" class="avatar" alt="avatar" />
+        <div class="who">
+          <div id="tName" class="name">your name</div>
+          <div id="tHandle" class="handle">@github</div>
+        </div>
+        <div class="right">
+          <div id="tSide" class="sideline">#123314</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // read from localStorage (same keys from form page)
+    const get = k => localStorage.getItem(k) || "";
+    const name = get("ticketName") || "your name";
+    const email = get("ticketEmail") || "you@example.com";
+    const gh = get("ticketGithub") || "github";
+    const avatar = get("ticketAvatar") || "";
+    let id = get("ticketId");
+    if(!id){
+      id = '#'+Math.floor(100000 + Math.random()*900000);
+      localStorage.setItem("ticketId", id);
+    }
+
+    document.getElementById("heroName").textContent = name;
+    document.getElementById("heroEmail").textContent = email;
+    document.getElementById("tName").textContent = name;
+    document.getElementById("tHandle").textContent = '@'+gh;
+    document.getElementById("tId").textContent = id;
+    document.getElementById("tSide").textContent = id;
+
+    const img = document.getElementById("tAvatar");
+    if(avatar){ img.src = avatar; } else { img.style.display = "none"; }
+  </script>
+</body>
+</html>
